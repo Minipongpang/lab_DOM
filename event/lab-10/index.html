@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label for="Province">Province :</label>
+    <select name="province" id="province-select">
+        <option value="">Select</option>
+
+    </select>
+    <br>
+    <br>
+
+    <label for="District">District : </label>
+    <select name="district" id="district-select">
+        <option value="">Select</option>
+    </select>
+
+
+
+    <script>
+        const provinces = ['bkk', 'pathumthani', 'nonthaburi']
+        const bkk = ['1', '2', '3']
+        const pathumthani = ['4', '5', '6']
+        const nonthaburi = ['7', '8', '9']
+
+        const selectProvince = document.getElementById('province-select');
+        const selectDistrict = document.getElementById('district-select');
+
+        provinces.forEach(function (item) {
+            var option = document.createElement("option");
+            option.value = item;
+            option.text = item;
+            selectProvince.appendChild(option)
+
+        })
+
+        selectDistrict.addEventListener(('click'), function () {
+            const selectedProvince = selectProvince.value;
+            // selectDistrict.innerHTML =
+            // selectDistrict.innerHTML = "<option value=''>Select</option>";
+            if (selectedProvince == 'bkk') {
+                bkk.forEach(function (item) {
+                    var bkkOption = document.createElement('option');
+                    bkkOption.value = item;
+                    bkkOption.text = item;
+                    selectDistrict.appendChild(bkkOption)
+                })
+            }
+            else if(selectedProvince == 'pathumthani') {
+                pathumthani.forEach(function (item) {
+                    var pathumthaniOption = document.createElement('option');
+                    pathumthaniOption.value = item;
+                    pathumthaniOption.text = item;
+                    selectDistrict.appendChild(pathumthaniOption)
+                })
+            }
+            else if(selectedProvince == 'nonthaburi') {
+                nonthaburi.forEach(function (item) {
+                    var nonthaburiOption = document.createElement('option');
+                    nonthaburiOption.value = item;
+                    nonthaburiOption.text = item;
+                    selectDistrict.appendChild(nonthaburiOption)
+                })
+            }
+        })
+            
+        
+
+
+    </script>
+</body>
+
+</html>

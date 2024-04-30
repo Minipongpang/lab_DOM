@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="decrese">-</button>
+    <span>0</span>
+    <button id="increse">+</button>
+    <button id="reset">Reset
+    </button>
+
+<script>
+    const decreaseButton = document.getElementById('decrese')
+    const increaseButton = document.getElementById('increse')
+    const count = document.querySelector('span')
+    const resetButton = document.getElementById('reset')
+
+    increaseButton.addEventListener('click',function(){
+        const currentCount = +count.textContent;
+        const newCount = currentCount + 1
+        count.textContent = newCount
+    })
+    decreaseButton.addEventListener('click',function(){
+        const currentCount = +count.textContent;
+       if(currentCount>0){
+        const newCount = currentCount - 1
+        count.textContent = newCount}
+    })
+    resetButton.addEventListener('click',function(){
+        count.textContent = 0
+    })
+
+</script>
+
+</body>
+</html>

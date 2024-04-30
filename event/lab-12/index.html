@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="todoList" class="todoList">
+        <button class="addButton">Add</button>
+        <div class="task1" id="task1">Task1  
+            <button class="task1Edit">Edit</button>
+            <button class="task1Del">Del</button>
+        </div> 
+       
+      </div>
+
+      <script>
+       const addButton = document.querySelector('.addButton');
+    const todoList = document.getElementById('todoList');
+    const editButtons = document.querySelectorAll('.task1Edit');
+
+    addButton.addEventListener('click', function() {
+    const taskText = prompt('Enter Task');
+    if (taskText !== null && taskText.trim() !== '') {
+        const taskElement = document.createElement('div');
+        taskElement.textContent = taskText.trim();
+        taskElement.addEventListener('click', function() {
+            taskElement.classList.toggle('completed');
+        });
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.classList.add('task1Edit');
+        const delButton = document.createElement('button');
+        delButton.textContent = 'Del';
+        delButton.classList.add('task1Del');
+
+        todoList.insertBefore(taskElement, addButton);
+        taskElement.appendChild(editButton);
+        taskElement.appendChild(delButton);
+    }
+});
+
+editButtons.forEach(function(editButton) {
+    editButton.addEventListener('click', function() {
+        const taskElement = editButton.parentNode;
+        const newText = prompt('Edit Task', taskElement.textContent);
+        if (newText !== null && newText.trim() !== '') {
+            taskElement.textContent = newText.trim();
+        }
+    });
+});
+
+todoList.addEventListener('click', function(event) {
+    const target = event.target;
+    if (target.classList.contains('task1Del')) {
+        target.parentNode.remove();
+    }
+});
+
+      </script>
+      
+ 
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <button id="submit">sumbit</button>
+    </form>
+
+    <script>
+        const submitButton = document.getElementById('submit')
+        
+        let isClicked = false;
+
+        function handleClick(event) {
+        event.preventDefault();
+        if (!isClicked) {
+        alert('Form is submitted');
+        isClicked = true;
+    }
+}
+submitButton.addEventListener('click', handleClick);
+
+    </script>
+</body>
+</html>
